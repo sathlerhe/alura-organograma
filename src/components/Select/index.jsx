@@ -1,12 +1,24 @@
 import "./style.css";
 
-const Select = ({ label, items }) => {
+const Select = ({ label, items, required, name, value, setValue }) => {
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
+
   return (
     <div className="select-list">
-      <label>{label}</label>
-      <select>
+      <label htmlFor={name}>{label}</label>
+      <select
+        name={name}
+        id={name}
+        onChange={handleChange}
+        required={required}
+        value={value}
+      >
         {items?.map((item) => (
-          <option value="" key={item}>{item}</option>
+          <option key={item} value={item}>
+            {item}
+          </option>
         ))}
       </select>
     </div>
