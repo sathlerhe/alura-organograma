@@ -14,6 +14,10 @@ const Form = ({ onSubmitCollaborator, teams }) => {
   const onSave = (e) => {
     e.preventDefault();
     onSubmitCollaborator({ name, role, image, team });
+    setName("");
+    setRole("");
+    setImage("");
+    setTeam("");
   };
 
   return (
