@@ -15,6 +15,7 @@ const Select = ({ label, items, required, name, value, setValue }) => {
         required={required}
         value={value}
       >
+        <option value=""></option>
         {items?.map((item) => (
           <option key={item} value={item}>
             {item}

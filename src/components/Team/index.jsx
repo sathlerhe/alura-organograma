@@ -15,6 +15,7 @@ function Team({ name, primaryColor, secondaryColor, collaborators }) {
                 role={collaborator.role}
                 image={collaborator.image}
                 key={collaborator.name}
+                bgColor={primaryColor}
               />
             ))}
           </div>
