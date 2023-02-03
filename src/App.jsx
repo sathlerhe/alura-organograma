@@ -49,6 +49,10 @@ function App() {
     setCollaborator([...collaborator, collaboratorProp]);
   };
 
+  function onDeleteCollaborator() {
+    console.log('delete')
+  }
+
   return (
     <div className="App">
       <Banner />
@@ -68,6 +72,7 @@ function App() {
           collaborators={collaborator.filter(
             (collaboratorFilter) => collaboratorFilter.team === team.name
           )}
+          onDelete={onDeleteCollaborator}
         />
       ))}
 
