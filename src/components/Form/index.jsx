@@ -5,20 +5,11 @@ import TextField from "../TextField";
 
 import "./style.css";
 
-const Form = ({ onSubmitCollaborator }) => {
-  const times = [
-    "Programação",
-    "Front-end",
-    "Data Science",
-    "DevOps",
-    "UX e Design",
-    "Mobile",
-    "Inovação e Gestão",
-  ];
+const Form = ({ onSubmitCollaborator, teams }) => {
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [image, setImage] = useState("");
-  const [team, setTeam] = useState(times[0]);
+  const [team, setTeam] = useState(teams[0]);
 
   const onSave = (e) => {
     e.preventDefault();
@@ -59,7 +50,7 @@ const Form = ({ onSubmitCollaborator }) => {
 
         <Select
           required
-          items={times}
+          items={teams}
           name="team"
           label="Time"
           value={team}
