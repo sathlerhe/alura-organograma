@@ -1,13 +1,18 @@
-.text-field {
+.input {
 }
 
-.text-field label {
+.input label {
   display: block;
   margin-bottom: 8px;
   font-size: 24px;
 }
 
-.text-field input {
+.input input[type="color"] {
+  padding: 16px !important;
+  height: 76px;
+}
+
+.input input {
   background-color: #fff;
   box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
   width: 100%;

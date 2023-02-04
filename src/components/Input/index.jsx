@@ -1,16 +1,24 @@
 import "./style.css";
 
-const TextField = ({ label, placeholder, required, name, value, setValue }) => {
+const Input = ({
+  label,
+  placeholder,
+  required = false,
+  name,
+  value,
+  setValue,
+  type = 'text',
+}) => {
   const handleChange = (e) => {
     setValue(e.target.value);
   };
 
   return (
-    <div className="text-field">
+    <div className="input">
       <label htmlFor={name}>{label}</label>
       <input
         onChange={handleChange}
-        type="text"
+        type={type}
         id={name}
         name={name}
         placeholder={placeholder}
@@ -21,4 +29,4 @@ const TextField = ({ label, placeholder, required, name, value, setValue }) => {
   );
 };
 
-export default TextField;
+export default Input;
