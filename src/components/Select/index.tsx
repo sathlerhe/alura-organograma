@@ -1,7 +1,26 @@
 import "./style.css";
 
-const Select = ({ label, items, required, name, value, setValue }) => {
-  const handleChange = (e) => {
+interface ISelect {
+  label: string;
+  items: {
+    id: string;
+    name: string;
+    primaryColor: string;
+  }[];
+  required: boolean;
+  name: string;
+  value: any;
+  setValue: (value: any) => void;
+}
+const Select: React.FC<ISelect> = ({
+  label,
+  items,
+  required,
+  name,
+  value,
+  setValue,
+}) => {
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setValue(e.target.value);
   };
 
