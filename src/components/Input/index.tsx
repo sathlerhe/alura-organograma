@@ -8,7 +8,7 @@ interface IInput {
   name: string;
   value: any;
   setValue: (value: any) => void;
-  type: HTMLInputTypeAttribute;
+  type?: HTMLInputTypeAttribute;
 }
 const Input: React.FC<IInput> = ({
   label,

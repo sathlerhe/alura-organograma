@@ -23,7 +23,7 @@ const Select: React.FC<ISelect> = ({
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setValue(e.target.value);
   };
-
+  
   return (
     <div className="select-list">
       <label htmlFor={name}>{label}</label>

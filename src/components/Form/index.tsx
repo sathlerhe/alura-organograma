@@ -1,31 +1,53 @@
 import { useState } from "react";
+import { v4 as uuid } from "uuid";
+
 import Button from "../Button";
 import Select from "../Select";
 import Input from "../Input";
 
 import "./style.css";
+import { ICollaborator } from "../../shared/interfaces/ICollaborator";
+import { ITeam } from "../../shared/interfaces/ITeam";
 
-const Form = ({ onSubmitCollaborator, teams, onSubmitTeam }) => {
+interface IForm {
+  onSubmitCollaborator: (collaborator: ICollaborator) => void;
+  teams: ITeam[];
+  onSubmitTeam: (team: ITeam) => void;
+}
+const Form: React.FC<IForm> = ({
+  onSubmitCollaborator,
+  teams,
+  onSubmitTeam,
+}) => {
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [image, setImage] = useState("");
-  const [team, setTeam] = useState(teams[0]);
+  const [team, setTeam] = useState<string>(teams[0].name);
 
   const [teamName, setTeamName] = useState("");
   const [teamColor, setTeamColor] = useState("#000000");
 
-  function onSubmitCollaboratorForm(e) {
+  console.log(teams);
+
+  function onSubmitCollaboratorForm(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    onSubmitCollaborator({ name, role, image, team });
+    onSubmitCollaborator({
+      name,
+      role,
+      image,
+      team,
+      id: uuid(),
+      favorited: false,
+    });
     setName("");
     setRole("");
     setImage("");
     setTeam("");
   }
 
-  function onSubmitTeamForm(e) {
+  function onSubmitTeamForm(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    onSubmitTeam({ name: teamName, primaryColor: teamColor });
+    onSubmitTeam({ name: teamName, primaryColor: teamColor, id: uuid() });
     setTeamName("");
     setTeamColor("#000000");
   }

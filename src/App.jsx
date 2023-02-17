@@ -47,13 +47,8 @@ function App() {
 
   const [collaborators, setCollaborators] = useState([]);
 
-  const onNewCollaboratorAdded = (collaboratorProp) => {
-    let newCollaborator = {
-      ...collaboratorProp,
-      id: uuid(),
-      favorited: false,
-    };
-    setCollaborators([...collaborators, newCollaborator]);
+  const onNewCollaboratorAdded = (collaborator) => {
+    setCollaborators([...collaborators, { ...collaborator }]);
   };
 
   function onDeleteCollaborator(id) {
@@ -75,7 +70,7 @@ function App() {
   }
 
   function onSubmitTeam(newTeam) {
-    setTeams([...teams, { ...newTeam, id: uuid() }]);
+    setTeams([...teams, { ...newTeam }]);
   }
 
   function toggleFavorite(id) {
