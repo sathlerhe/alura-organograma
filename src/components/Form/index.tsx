@@ -27,8 +27,6 @@ const Form: React.FC<IForm> = ({
   const [teamName, setTeamName] = useState("");
   const [teamColor, setTeamColor] = useState("#000000");
 
-  console.log(teams);
-
   function onSubmitCollaboratorForm(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     onSubmitCollaborator({
