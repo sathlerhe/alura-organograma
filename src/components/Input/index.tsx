@@ -1,15 +1,25 @@
+import { ChangeEvent, HTMLInputTypeAttribute } from "react";
 import "./style.css";
 
-const Input = ({
+interface IInput {
+  label: string;
+  placeholder: string;
+  required: boolean;
+  name: string;
+  value: any;
+  setValue: (value: any) => void;
+  type: HTMLInputTypeAttribute;
+}
+const Input: React.FC<IInput> = ({
   label,
   placeholder,
   required = false,
   name,
   value,
   setValue,
-  type = 'text',
+  type = "text",
 }) => {
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
 

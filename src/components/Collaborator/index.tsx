@@ -2,6 +2,16 @@ import { AiFillCloseCircle, AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 import "./styles.css";
 
+interface ICollaborator {
+  name: string;
+  role: string;
+  image: string;
+  bgColor: string;
+  favorited: boolean;
+  id: string;
+  onDelete: (id: string) => void;
+  toggleFavorite: (id: string) => void;
+}
 function Collaborator({
   name,
   role,
@@ -11,7 +21,7 @@ function Collaborator({
   favorited,
   toggleFavorite,
   id,
-}) {
+}: ICollaborator) {
   function handleToggleFavorite() {
     toggleFavorite(id);
   }
@@ -19,7 +29,7 @@ function Collaborator({
   const favoriteProps = {
     size: 40,
     onClick: handleToggleFavorite,
-    cursor: 'pointer'
+    cursor: "pointer",
   };
 
   return (
@@ -38,7 +48,7 @@ function Collaborator({
 
         <div className="favorite">
           {favorited ? (
-            <AiFillHeart {...favoriteProps} color='#ff0000'/>
+            <AiFillHeart {...favoriteProps} color="#ff0000" />
           ) : (
             <AiOutlineHeart {...favoriteProps} />
           )}

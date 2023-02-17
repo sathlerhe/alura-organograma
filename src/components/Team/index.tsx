@@ -1,7 +1,17 @@
 import hexToRgba from "hex-to-rgba";
+import { ICollaborator } from "../../shared/interfaces/ICollaborator";
 import Collaborator from "../Collaborator";
 import "./styles.css";
 
+interface ITeam {
+  name: string;
+  primaryColor: string;
+  id: string;
+  collaborators: ICollaborator[];
+  onDelete: (id: string) => void;
+  toggleFavorite: (id: string) => void;
+  changeColor: (color: string, id: string) => void;
+}
 function Team({
   name,
   primaryColor,
@@ -10,7 +20,7 @@ function Team({
   onDelete,
   changeColor,
   toggleFavorite,
-}) {
+}: ITeam) {
   return (
     <>
       {collaborators.length > 0 && (
