@@ -91,7 +91,7 @@ function App() {
 
   return (
     <div className="App">
-      <Banner />
+      <Banner src="/images/banner.png" alt="Banner da organo" />
       <Form
         teams={teams}
         onSubmitCollaborator={(collaborator) =>
