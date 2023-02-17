@@ -17,7 +17,7 @@ const Input: React.FC<IInput> = ({
   name,
   value,
   setValue,
-  type = "text",
+  type = "text"
 }) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);

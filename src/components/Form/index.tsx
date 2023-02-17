@@ -8,6 +8,7 @@ import Input from "../Input";
 import "./style.css";
 import { ICollaborator } from "../../shared/interfaces/ICollaborator";
 import { ITeam } from "../../shared/interfaces/ITeam";
+import dayjs from "dayjs";
 
 interface IForm {
   onSubmitCollaborator: (collaborator: ICollaborator) => void;
@@ -22,6 +23,9 @@ const Form: React.FC<IForm> = ({
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [image, setImage] = useState("");
+  const [date, setDate] = useState<string>(
+    dayjs(new Date()).format("YYYY-MM-DD")
+  );
   const [team, setTeam] = useState<string>(teams[0].name);
 
   const [teamName, setTeamName] = useState("");
@@ -34,6 +38,7 @@ const Form: React.FC<IForm> = ({
       role,
       image,
       team,
+      date,
       id: uuid(),
       favorited: false,
     });
@@ -71,6 +76,15 @@ const Form: React.FC<IForm> = ({
           placeholder="Digite seu cargo"
           value={role}
           setValue={setRole}
+        />
+
+        <Input
+          type="date"
+          name="date"
+          label="Data de entrada no time"
+          placeholder=""
+          value={date}
+          setValue={setDate}
         />
 
         <Input

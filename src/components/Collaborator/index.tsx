@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { AiFillCloseCircle, AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 import "./styles.css";
@@ -8,6 +9,7 @@ interface ICollaborator {
   image: string;
   bgColor: string;
   favorited: boolean;
+  date: string;
   id: string;
   onDelete: (id: string) => void;
   toggleFavorite: (id: string) => void;
@@ -21,6 +23,7 @@ function Collaborator({
   favorited,
   toggleFavorite,
   id,
+  date,
 }: ICollaborator) {
   function handleToggleFavorite() {
     toggleFavorite(id);
@@ -45,6 +48,7 @@ function Collaborator({
       <div className="rodape">
         <h4>{name}</h4>
         <h5>{role}</h5>
+        <h5>{dayjs(date).startOf('day').format('DD/MM/YYYY')}</h5>
 
         <div className="favorite">
           {favorited ? (

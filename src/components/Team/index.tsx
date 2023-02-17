@@ -44,6 +44,7 @@ function Team({
                   role={collaborator.role}
                   image={collaborator.image}
                   key={collaborator.id}
+                  date={collaborator.date}
                   bgColor={primaryColor}
                   id={collaborator.id}
                   favorited={collaborator.favorited}
