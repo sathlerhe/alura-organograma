@@ -4,7 +4,7 @@ import "./style.css";
 interface IInput {
   label: string;
   placeholder: string;
-  required: boolean;
+  required?: boolean;
   name: string;
   value: any;
   setValue: (value: any) => void;

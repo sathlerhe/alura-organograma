@@ -5,9 +5,11 @@ import Banner from "./components/Banner";
 import Footer from "./components/Footer";
 import Form from "./components/Form";
 import Team from "./components/Team";
+import { ICollaborator } from "./shared/interfaces/ICollaborator";
+import { ITeam } from "./shared/interfaces/ITeam";
 
 function App() {
-  const [teams, setTeams] = useState([
+  const [teams, setTeams] = useState<ITeam[]>([
     {
       id: uuid(),
       name: "Programação",
@@ -45,19 +47,19 @@ function App() {
     },
   ]);
 
-  const [collaborators, setCollaborators] = useState([]);
+  const [collaborators, setCollaborators] = useState<ICollaborator[]>([]);
 
-  const onNewCollaboratorAdded = (collaborator) => {
+  const onNewCollaboratorAdded = (collaborator: ICollaborator) => {
     setCollaborators([...collaborators, { ...collaborator }]);
   };
 
-  function onDeleteCollaborator(id) {
+  function onDeleteCollaborator(id: string) {
     setCollaborators(
       collaborators.filter((collaborator) => collaborator.id !== id)
     );
   }
 
-  function changeTeamColor(color, id) {
+  function changeTeamColor(color: string, id: string) {
     setTeams(
       teams.map((team) => {
         if (team.id === id) {
@@ -69,11 +71,11 @@ function App() {
     );
   }
 
-  function onSubmitTeam(newTeam) {
+  function onSubmitTeam(newTeam: ITeam) {
     setTeams([...teams, { ...newTeam }]);
   }
 
-  function toggleFavorite(id) {
+  function toggleFavorite(id: string) {
     setCollaborators(
       collaborators.map((collaborator) => {
         if (collaborator.id === id) {

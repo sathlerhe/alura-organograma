@@ -76,7 +76,6 @@ const Form: React.FC<IForm> = ({
         />
 
         <Input
-          required
           label="Imagem"
           name="image"
           placeholder="Digite o endereço da imagem"
